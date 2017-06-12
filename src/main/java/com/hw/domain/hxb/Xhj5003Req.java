@@ -1,17 +1,27 @@
 package com.hw.domain.hxb;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 @ApiModel
 public class Xhj5003Req {
 	@ApiModelProperty(value = "交易账号", required = true)
+	@JsonProperty("acctno")
 	private String acctNo;
+
+    @JsonProperty("startdate")
 	@ApiModelProperty(value = "开始日期yyyyMMdd",required = true)
 	private String startDate;
+
+    @JsonProperty("enddate")
 	@ApiModelProperty(value = "结束日期yyyyMMdd",required = true)
 	private String endDate;
+
+    @JsonProperty("startamt")
 	@ApiModelProperty(value = "起始交易金额",required = true)
 	private Double startAmt;
+
+    @JsonProperty("endamt")
 	@ApiModelProperty(value = "截至交易金额",required = true)
 	private Double endAmt;
 	public String getAcctNo() {

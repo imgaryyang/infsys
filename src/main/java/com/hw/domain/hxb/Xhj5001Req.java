@@ -1,22 +1,20 @@
 package com.hw.domain.hxb;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel
 public class Xhj5001Req {
-	@ApiModelProperty(value = "交易代码", required = true,allowableValues="xhj5001")
-	private String tran_code;
+
+	@JsonProperty("flowno")
 	@ApiModelProperty(value = "企业端流水号", required = true)
+
 	private String flowNo;
+	@JsonProperty("entrydate")
 	@ApiModelProperty(value = "录入日期", required = true)
 	private String entryDate;
-	public String getTran_code() {
-		return tran_code;
-	}
-	public void setTran_code(String tran_code) {
-		this.tran_code = tran_code;
-	}
+
 	public String getFlowNo() {
 		return flowNo;
 	}

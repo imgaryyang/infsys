@@ -18,10 +18,12 @@ public class Xhj3013Req {
 	@JsonProperty("transdate")
 	@ApiModelProperty(value = "日期yyyyMMdd",required = true)
 	private String TransDate;
-	
+
+	@JsonProperty("flowno")
 	public String getFlowNo() {
 		return flowNo;
 	}
+	@JsonProperty("flowno")
 	public void setFlowNo(String flowNo) {
 		this.flowNo = flowNo;
 	}

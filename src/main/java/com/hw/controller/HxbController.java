@@ -185,6 +185,7 @@ public class HxbController {
 		sBuilder.append(req.getEndAmt());// 截至交易金额
 		sBuilder.append("#@@@@");
 		String rep = socketc.SendData(sBuilder.toString());
+		logger.info(sBuilder.toString());
 		// 返回示例：000000#
 		String[] reps = rep.split("#");
 		res.setResponse_code(reps[0]);

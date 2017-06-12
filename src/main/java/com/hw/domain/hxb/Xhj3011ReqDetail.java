@@ -1,26 +1,47 @@
 package com.hw.domain.hxb;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 public class Xhj3011ReqDetail {
+	@JsonProperty("acctno")
 	@ApiModelProperty(value = "付款账号",required = true)
 	private String acctNo;
+
+
+	@JsonProperty("transtype")
 	@ApiModelProperty(value = "转账类型",required = true)
 	private String transType;
+
+	@JsonProperty("payeebankname")
 	@ApiModelProperty(value = "收款行名称",required = true)
 	private String payeeBankName;
+
+	@JsonProperty("payeeacctno")
 	@ApiModelProperty(value = "收款帐号",required = true)
 	private String payeeAcctNo;
+
+	@JsonProperty("payeename")
 	@ApiModelProperty(value = "收款人名称",required = true)
 	private String payeeName;
+
+	@JsonProperty("payeebankaddr")
 	@ApiModelProperty(value = "收款行地址",required = true)
 	private String payeeBankAddr;
+
+	@JsonProperty("amount")
 	@ApiModelProperty(value = "金额", required = true)
 	private Double amount;
+
+	@JsonProperty("ac_summary")
 	@ApiModelProperty(value = "摘要", required = true)
 	private String ac_summary;
+
+	@JsonProperty("payeebankno")
 	@ApiModelProperty(value = "收款联行行号", required = true)
 	private String payeeBankNo;
+
+	@JsonProperty("mobiletel")
 	@ApiModelProperty(value = "手机号")
 	private String mobileTel;
 	public String getAcctNo() {
