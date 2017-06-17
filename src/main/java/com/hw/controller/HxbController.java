@@ -437,6 +437,9 @@ public class HxbController {
 
 		String rep = socketc.SendData(sBuilder.toString());
 		// 返回示例：000000#
+		if (rep.isEmpty()||rep==null){
+            res.setErrorMsg("未得到银行返回值");
+		}else{
 		String[] reps = rep.split("#", -1);
 		res.setResponse_code(reps[0]);
 		if (reps[0].equals("000000")) {
@@ -447,7 +450,7 @@ public class HxbController {
 			res.setBackup2(reps[5]);
 		} else {
 			res.setErrorMsg(commp.getString(reps[0]));
-		}
+		}}
 		return res;
 	}
 
