@@ -3,6 +3,8 @@ package com.hw.domain.hxb;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.List;
+
 @ApiModel()
 public class Xhj5003Res {
 	@ApiModelProperty(value = "报文标识", required = true)
@@ -11,7 +13,11 @@ public class Xhj5003Res {
 	private Integer rec;
 	@ApiModelProperty(value = "错误消息")
 	private String ErrorMsg;
-	
+
+
+	@ApiModelProperty(value = "明细",required = true)
+	private List<Xhj5003ResDetail> detail;
+
 	public String getErrorMsg() {
 		return ErrorMsg;
 	}
@@ -30,5 +36,12 @@ public class Xhj5003Res {
 	public void setRec(Integer rec) {
 		this.rec = rec;
 	}
-	
+
+	public List<Xhj5003ResDetail> getDetail() {
+		return detail;
+	}
+
+	public void setDetail(List<Xhj5003ResDetail> detail) {
+		this.detail = detail;
+	}
 }

@@ -7,8 +7,11 @@ import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel
 public class Xhj3013Res {
+	@JsonProperty("response_code")
 	@ApiModelProperty(value = "响应码", required = true)
 	private String Response_code;
+
+	@JsonProperty("errormsg")
 	@ApiModelProperty(value = "错误消息")
 	private String ErrorMsg;
 	
@@ -44,80 +47,85 @@ public class Xhj3013Res {
 	@ApiModelProperty(value = "对方银行")
 	private String BeneBank;
 
+	@JsonProperty("eleno")
 	public String getEleNo() {
 		return EleNo;
 	}
-
+	@JsonProperty("eleno")
 	public void setEleNo(String eleNo) {
 		EleNo = eleNo;
 	}
-
+	@JsonProperty("validatecode")
 	public String getValidateCode() {
 		return ValidateCode;
 	}
-
+	@JsonProperty("validatecode")
 	public void setValidateCode(String validateCode) {
 		ValidateCode = validateCode;
 	}
-
+	@JsonProperty("acctno")
 	public String getAcctNo() {
 		return AcctNo;
 	}
-
+	@JsonProperty("acctno")
 	public void setAcctNo(String acctNo) {
 		AcctNo = acctNo;
 	}
-
+	@JsonProperty("transdate")
 	public String getTransDate() {
 		return TransDate;
 	}
-
+	@JsonProperty("transdate")
 	public void setTransDate(String transDate) {
 		TransDate = transDate;
 	}
-
+	@JsonProperty("transamt")
 	public Double getTransAmt() {
 		return TransAmt;
 	}
-
+	@JsonProperty("transamt")
 	public void setTransAmt(Double transAmt) {
 		TransAmt = transAmt;
 	}
-
+	@JsonProperty("beneacct")
 	public String getBeneAcct() {
 		return BeneAcct;
 	}
-
+	@JsonProperty("beneacct")
 	public void setBeneAcct(String beneAcct) {
 		BeneAcct = beneAcct;
 	}
-
+	@JsonProperty("benename")
 	public String getBeneName() {
 		return BeneName;
 	}
-
+	@JsonProperty("benename")
 	public void setBeneName(String beneName) {
 		BeneName = beneName;
 	}
-
+	@JsonProperty("benebank")
 	public String getBeneBank() {
 		return BeneBank;
 	}
-
-	public void setBeneBank(String beneBank) {
-		BeneBank = beneBank;
+	@JsonProperty("benebank")
+	public void setBeneBank(String benebank) {
+		BeneBank = benebank;
 	}
-	
+	@JsonProperty("response_code")
 	public String getResponse_code() {
 		return Response_code;
 	}
+	@JsonProperty("response_code")
 	public void setResponse_code(String response_code) {
 		Response_code = response_code;
 	}
+
+	@JsonProperty("errormsg")
 	public String getErrorMsg() {
 		return ErrorMsg;
 	}
-	public void setErrorMsg(String errorMsg) {
-		ErrorMsg = errorMsg;
+	@JsonProperty("errormsg")
+	public void setErrorMsg(String errormsg) {
+		ErrorMsg = errormsg;
 	}
 }

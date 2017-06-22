@@ -47,19 +47,29 @@ public class SocketClient {
 			pw.println(req);
 			pw.flush();
 			response = br.readLine();
-			logger.info(response);
+			logger.info("返回值:"+response);
+			if(StrUtil.isBlankOrNull(response)){
+				response="NORETN##@@@@";
+			}
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-			e.printStackTrace();
+			response="TIMEOT##@@@@";
+			//e.printStackTrace();
 		} finally {
 			try {
 				logger.info("close......");
-				br.close();
+				if(br != null){
+					br.close();
+				}if(pw != null){
 				pw.close();
+				}
+				if(socket!=null && socket.isConnected()){
 				socket.close();
+				}
+				return response;
 			} catch (IOException e) {
 				logger.error(e.getMessage());
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 		return response;

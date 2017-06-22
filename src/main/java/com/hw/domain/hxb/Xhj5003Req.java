@@ -24,35 +24,46 @@ public class Xhj5003Req {
     @JsonProperty("endamt")
 	@ApiModelProperty(value = "截至交易金额",required = true)
 	private Double endAmt;
+
+
+	@JsonProperty("acctno")
 	public String getAcctNo() {
 		return acctNo;
 	}
-	public void setAcctNo(String acctNo) {
-		this.acctNo = acctNo;
+	public void setAcctNo(String acctno) {
+		this.acctNo = acctno;
 	}
+
+	@JsonProperty("startdate")
 	public String getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+	public void setStartDate(String startdate) {
+		this.startDate = startdate;
 	}
+
+	@JsonProperty("enddate")
 	public String getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
+	public void setEndDate(String enddate) {
+		this.endDate = enddate;
 	}
+
+	@JsonProperty("startamt")
 	public Double getStartAmt() {
 		return startAmt;
 	}
-	public void setStartAmt(Double startAmt) {
-		this.startAmt = startAmt;
+	public void setStartAmt(Double startamt) {
+		this.startAmt = startamt;
 	}
+
+	@JsonProperty("endamt")
 	public Double getEndAmt() {
 		return endAmt;
 	}
-	public void setEndAmt(Double endAmt) {
-		this.endAmt = endAmt;
+	public void setEndAmt(Double endamt) {
+		this.endAmt = endamt;
 	}
 
 }
