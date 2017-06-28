@@ -47,7 +47,8 @@ public class HTTPBearerAuthorizeAttribute implements Filter{
             if (HeadStr.compareTo("bearer") == 0)  
             {  
                   
-                auth = auth.substring(7, auth.length());   
+                auth = auth.substring(7, auth.length());
+
                 if (JwtHelper.parseJWT(auth, audienceEntity.getBase64Secret()) != null)  
                 {  
                     chain.doFilter(request, response);  

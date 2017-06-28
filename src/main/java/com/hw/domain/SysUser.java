@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 @Entity
 public class SysUser implements UserDetails {
@@ -15,6 +16,7 @@ public class SysUser implements UserDetails {
     private Long id;
     private String username;
     private String password;
+    private Date createdate;
 
     @ManyToMany(cascade = {CascadeType.REFRESH},fetch = FetchType.EAGER)
     private List<SysRole> roles;
@@ -33,6 +35,14 @@ public class SysUser implements UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Date getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
     }
 
     public List<SysRole> getRoles() {

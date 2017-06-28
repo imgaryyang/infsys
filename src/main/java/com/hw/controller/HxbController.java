@@ -44,6 +44,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
+@RequestMapping("api")
 //@EnableConfigurationProperties({HxBankConfig.class})
 @Api("华夏银行接口api")
 public class HxbController {

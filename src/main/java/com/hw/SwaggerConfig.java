@@ -1,9 +1,8 @@
 package com.hw;
+import com.hw.domain.SysUser;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.hw.domain.UserInfo;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -19,7 +18,7 @@ public class SwaggerConfig {
     public Docket testApi() {
 		//logger.info("http://localhost:8080/swagger-ui.html");
         return new Docket(DocumentationType.SWAGGER_2)
-        		 .apiInfo(apiInfo()).ignoredParameterTypes(UserInfo.class)
+        		 .apiInfo(apiInfo()).ignoredParameterTypes(SysUser.class)
                  .select()
                  .apis(RequestHandlerSelectors.basePackage("com.hw.controller"))
                  .paths(PathSelectors.any())

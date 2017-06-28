@@ -1,21 +1,20 @@
 package com.hw.controller;
 
+import com.hw.Dao.SysUserRepository;
+import com.hw.domain.SysUser;
+import com.hw.utils.MD5Util;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;  
 import org.springframework.web.bind.annotation.RequestBody;  
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hw.Dao.UserDao;
 import com.hw.domain.Audience;
-import com.hw.domain.UserInfo;
 import com.hw.jwt.AccessToken;
 import com.hw.jwt.JwtHelper;
 import com.hw.jwt.LoginPara;
-import com.hw.utils.MyUtils;
 import com.hw.utils.ResultMsg;
 import com.hw.utils.ResultStatusCode;
 
@@ -24,15 +23,17 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
- 
-  
+import springfox.documentation.annotations.ApiIgnore;
+
+
 @RestController
+@ApiIgnore
 @Api("WebToken相关api")
 public class JsonWebToken {  
 	Logger logger = Logger.getLogger(JsonWebToken.class);
 	
     @Autowired  
-    private UserDao userRepositoy;  
+    private SysUserRepository userRepositoy;
       
     @Autowired  
     private Audience audienceEntity;  
@@ -67,16 +68,17 @@ public class JsonWebToken {
               
               
             //验证用户名密码  
-            UserInfo user = userRepositoy.findUserInfoByName(loginPara.getUserName());  
+            SysUser user = userRepositoy.findByUsername(loginPara.getUserName());
             if (user == null)  
             {  
-                resultMsg = new ResultMsg(ResultStatusCode.INVALID_PASSWORD.getErrcode(),  
+                resultMsg = new ResultMsg(ResultStatusCode.INVALID_PASSWORD.getErrcode(),
                         ResultStatusCode.INVALID_PASSWORD.getErrmsg(), null);  
                 return resultMsg;  
             }  
             else  
             {  
-                String md5Password = MyUtils.getMD5(loginPara.getPassword()+user.getSalt());  
+               // String md5Password = MyUtils.getMD5(loginPara.getPassword()+user.getSalt());
+                String md5Password =MD5Util.encode(loginPara.getPassword());
                 logger.info(md5Password);
                 if (md5Password.compareTo(user.getPassword()) != 0)  
                 {  
@@ -87,8 +89,8 @@ public class JsonWebToken {
             }  
               
             //拼装accessToken  
-            String accessToken = JwtHelper.createJWT(loginPara.getUserName(), String.valueOf(user.getName()),  
-                    user.getRole(), audienceEntity.getClientId(), audienceEntity.getName(),  
+            String accessToken = JwtHelper.createJWT(loginPara.getUserName(), String.valueOf(user.getUsername()),
+                    audienceEntity.getClientId(), audienceEntity.getName(),
                     audienceEntity.getExpiresSecond() * 1000, audienceEntity.getBase64Secret());  
               
             //返回accessToken  

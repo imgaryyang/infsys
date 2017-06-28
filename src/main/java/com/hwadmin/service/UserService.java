@@ -1,6 +1,6 @@
 package com.hwadmin.service;
 
-import com.hw.domain.UserInfo;
+import com.hw.domain.SysUser;
 
 public interface UserService {
 
@@ -9,6 +9,6 @@ public interface UserService {
      * @param loginName 登录名
      * @return
      */
-    public UserInfo getUserByLoginName(String loginName);
+    public SysUser getUserByLoginName(String loginName);
 
 }
